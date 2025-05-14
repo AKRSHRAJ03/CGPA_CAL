@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGPA Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+       <nav class="navbar">
+         <div class="logo">CGPA Calculator</div>
+           <ul class="nav-links">
+             <li><a href="#about-project">About This Project</a></li>
+              <li><a href="#about-company">About Company</a></li>
+             <li><a href="#contact-us">Contact Us</a></li>
+           </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>📊 CGPA Calculator</h1>
+        
+        <!-- Input Section -->
+        <div class="input-section">
+            <input type="text" id="courseName" placeholder="Course Name">
+            <input type="number" id="credits" placeholder="Credits" min="1">
+            <select id="grade">
+                <option value="10">O</option>
+                <option value="9">E</option>
+                <option value="8">A</option>
+                <option value="7">B</option>
+                <option value="6">C</option>
+                <option value="5">D</option>
+                <option value="0">F</option>
+            </select>
+            <button onclick="addCourse()">Add Course</button>
+        </div>
+
+        <!-- Results Display -->
+        <div class="results">
+            <h2>Current CGPA: <span id="cgpaValue">-</span></h2>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <button onclick="saveSemester()">Save Semester</button>
+        </div>
+
+        <!-- Visualization -->
+        <div class="chart-container">
+            <canvas id="performanceChart"></canvas>
+        </div>
+
+        <!-- Semester History -->
+        <div class="history">
+            <h3>Semester History</h3>
+            <div id="semesterList"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <section id="about-project">
+  <h2>About This Project</h2>
+  <p>This web application helps students calculate and manage their CGPA easily, visualize academic progress, and keep semester-wise records.</p>
+</section>
+<section id="about-company">
+  <h2>About Company</h2>
+  <p>We are a student-focused edtech company dedicated to providing simple, effective academic tools for learners worldwide.</p>
+</section>
+<section id="contact-us">
+  <h2>Contact Us</h2>
+  <p>Email: support@cgpacalc.com<br>Phone: +91-12345-67890</p>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <p>&copy; 2025 CGPA Calculator. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="#about-project">About This Project</a></li>
+      <li><a href="#about-company">About Company</a></li>
+      <li><a href="#contact-us">Contact Us</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
