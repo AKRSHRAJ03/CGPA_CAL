@@ -38,25 +38,34 @@
             <button onclick="addCourse()">Add Course</button>
         </div>
 
-        <!-- Results Display -->
-        <div class="results">
-            <h2>Current CGPA: <span id="cgpaValue">-</span></h2>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
-            </div>
-            <button onclick="saveSemester()">Save Semester</button>
+<div class="results">
+    <h2>Current CGPA: <span id="cgpaValue">-</span></h2>
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div class="button-row">
+        <div class="left-buttons">
+            <button class="action-btn" onclick="saveSemester()">Save Semester</button>
+            <button class="action-btn" onclick="resetAll()">Reset All</button>
         </div>
+        <a href="report.html" class="report-link">
+            <button class="action-btn">📄 View Semester Report</button>
+        </a>
+    </div>
+</div>
+
+
 
         <!-- Visualization -->
         <div class="chart-container">
             <canvas id="performanceChart"></canvas>
         </div>
+        <!-- Current CGPA Display -->
+<div class="results" style="margin-top: 20px;">
+    <h2>Current Cumulative CGPA: <span id="cgpaValueBelowGraph">-</span></h2>
+</div>
 
-        <!-- Semester History -->
-        <div class="history">
-            <h3>Semester History</h3>
-            <div id="semesterList"></div>
-        </div>
+
     </div>
 
     <script src="script.js"></script>
