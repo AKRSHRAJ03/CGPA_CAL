@@ -126,7 +126,13 @@ function drawChart() {
                 fill: false,
                 tension: 0.3,
                 pointRadius: 5,
-                pointBackgroundColor: '#4CAF50'
+                pointBackgroundColor: '#4CAF50',
+                segment: {
+                borderColor: ctx => {
+                    const { p0, p1 } = ctx;
+                    return p1.parsed.y < p0.parsed.y ? 'red' : '#4CAF50';
+                }
+            }
             }]
         },
         options: {

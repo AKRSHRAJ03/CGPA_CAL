@@ -132,7 +132,7 @@ function getGradeLetter(value) {
 
 function initializeChart() {
     const ctx = document.getElementById('performanceChart').getContext('2d');
-    
+
     let cumulativeCredits = 0;
     let cumulativePoints = 0;
     const cgpaPoints = [];
@@ -142,7 +142,6 @@ function initializeChart() {
             cumulativeCredits += course.credits;
             cumulativePoints += course.credits * course.grade;
         });
-
         const cgpa = cumulativeCredits === 0 ? 0 : cumulativePoints / cumulativeCredits;
         cgpaPoints.push(parseFloat(cgpa.toFixed(3)));
     });
@@ -154,12 +153,41 @@ function initializeChart() {
             datasets: [{
                 label: 'CGPA Trend',
                 data: cgpaPoints,
-                borderColor: '#4CAF50',
-                tension: 0.4
+                borderColor: '#4CAF50', // fallback
+                borderWidth: 3,
+                tension: 0.4,
+                fill: false,
+                pointRadius: 5,
+                pointBackgroundColor: '#4CAF50',
+                segment: {
+                    borderColor: ctx => {
+                        const { p0, p1 } = ctx;
+                        return p1.parsed.y < p0.parsed.y ? 'red' : '#4CAF50';
+                    }
+                }
             }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    title: {
+                        display: true,
+                        text: 'CGPA'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Semester'
+                    }
+                }
+            }
         }
     });
 }
+
 
 
 function updateChart() {
